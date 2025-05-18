@@ -1,0 +1,11 @@
+{
+  "name": "recipe-app-backend",
+  "version": "1.0.0",
+  "description": "A Node.js backend for managing and storing recipe data for the Recipe App.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Paul",
+  "license": "ISC"
+}
