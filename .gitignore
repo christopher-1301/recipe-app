@@ -10,3 +10,9 @@ yarn-error.log*
 
 # VS Code settings
 .vscode/
+
+# Ideas
+.idea/
+
+# Data
+data/
