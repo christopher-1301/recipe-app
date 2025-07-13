@@ -3,6 +3,7 @@ const express = require("express");
 
 const app = express();
 const port = 3000;
+const recipeRoutes = require("./routes/recipe-routes");
 
 const path = require("path");
 const dbPath = path.join(__dirname, "data", "recipes.db");
@@ -18,3 +19,5 @@ const db = new sqlite3.Database(dbPath, (err) => {
 app.listen(port, () => {
   console.log(`Recipe app backend listening on port ${port}`);
 });
+
+app.use('/recipes', recipeRoutes);
