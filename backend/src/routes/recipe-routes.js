@@ -38,11 +38,46 @@ router.get('/:id', (req, res) => {
                 FROM mock_recipes
                 WHERE id = ${id}`, [], (err, row) => {
             if (err) {
-                console.error("Error fetching recipes", err);
+                console.error("Error fetching recipe", err);
                 res.status(404).send("Internal Server Error");
                 return;
             }
             res.status(200).json(row);
+            db.close();
+        });
+    });
+});
+
+router.post("/", (req, res) => {
+    const {title, description, url} = req.body;
+
+    if (!title || !url) {
+        return res.status(400).json({error: "Title and URL are required fields"});
+    }
+
+    const db = new sqlite3.Database(dbPath, (err) => {
+        if (err) {
+            console.error("Error connecting to the database", err);
+            res.status(500).send("Internal Server Error");
+            return;
+        }
+
+        const stmt = db.prepare("INSERT INTO mock_recipes (title, description, url) VALUES (?, ?, ?)");
+        stmt.run([title, description || "", url], function (err) {
+            if (err) {
+                console.error("Error inserting recipe", err);
+                res.status(500).send("Internal Server Error");
+                return;
+            }
+
+            res.status(201).json({
+                id: this.lastID,
+                title,
+                description: description || "",
+                url
+            });
+
+            stmt.finalize();
             db.close();
         });
     });

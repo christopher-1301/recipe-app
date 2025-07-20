@@ -8,6 +8,8 @@ const recipeRoutes = require("./routes/recipe-routes");
 const path = require("path");
 const dbPath = path.join(__dirname, "data", "recipes.db");
 
+app.use(express.json());
+
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error("Could not connect to database", err);
