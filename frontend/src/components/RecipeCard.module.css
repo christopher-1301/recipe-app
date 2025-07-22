@@ -1,0 +1,12 @@
+.recipeCard {
+    width: 22rem;
+    height: 30rem;
+    border: #1a1a1a;
+    border-style: solid;
+}
+
+.recipeCardHeaderImage {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
