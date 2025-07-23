@@ -7,7 +7,8 @@ type RecipeCardProps = {
 
 export const RecipeCard = ({ recipe }: RecipeCardProps) => (
     <article className={styles.recipeCard}>
-        <img src={recipe.imageUrl} alt={`image of ${recipe.title}`} className={styles.recipeCardHeaderImage} />
+        <img src={recipe.imageUrl} alt={`image of ${recipe.title}`} />
         <h2>{recipe.title}</h2>
+        <hr />
     </article>
 );

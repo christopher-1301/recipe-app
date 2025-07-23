@@ -1,12 +1,25 @@
 .recipeCard {
-    width: 22rem;
-    height: 30rem;
-    border: #1a1a1a;
-    border-style: solid;
+    width: 15rem;
+    height: 15rem;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin: 10px;
 }
 
-.recipeCardHeaderImage {
-    height: 20rem;
+.recipeCard h2 {
+    font-size: 1.25rem;
+}
+
+.recipeCard img {
+    height: 9rem;
     width: 100%;
     object-fit: cover;
+}
+
+.recipeCard hr {
+    background-color: #5fbab0;
+    border: none;
+    height: 2px;
+    margin: 0.5rem 0;
 }
