@@ -35,7 +35,7 @@ const mockRecipes: Recipe[] = [
 
 function App() {
     return (
-        <div className={'homePage'}>
+        <div>
             <h1>Recipe App</h1>
             <p>Take a look at the {mockRecipes.length} recipes here!</p>
             {mockRecipes.map(recipe => (
