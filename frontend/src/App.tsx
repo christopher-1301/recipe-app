@@ -1,7 +1,4 @@
-import './global.css'
-
 import type { Recipe } from './types/Recipe'
-import {RecipeCard} from "./components/RecipeCard.tsx";
 
 const mockRecipes: Recipe[] = [
     {
@@ -36,11 +33,7 @@ const mockRecipes: Recipe[] = [
 function App() {
     return (
         <div>
-            <h1>Recipe App</h1>
-            <p>Take a look at the {mockRecipes.length} recipes here!</p>
-            {mockRecipes.map(recipe => (
-                <RecipeCard key={recipe.title} recipe={recipe} />
-            ))}
+            <h1>H1 header</h1>
         </div>
     )
 }
