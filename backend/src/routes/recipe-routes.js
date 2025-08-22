@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
             res.status(500).send("Internal Server Error");
             return;
         }
-        db.all("SELECT * FROM mock_recipes", [], (err, rows) => {
+        db.all("SELECT * FROM all_recipes", [], (err, rows) => {
             if (err) {
                 console.error("Error fetching recipes", err);
                 res.status(500).send("Internal Server Error");
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
             return;
         }
         db.get(`SELECT *
-                FROM mock_recipes
+                FROM all_recipes
                 WHERE id = ${id}`, [], (err, row) => {
             if (err) {
                 console.error("Error fetching recipe", err);
@@ -62,7 +62,7 @@ router.post("/", (req, res) => {
             return;
         }
 
-        const stmt = db.prepare("INSERT INTO mock_recipes (title, description, url) VALUES (?, ?, ?)");
+        const stmt = db.prepare("INSERT INTO all_recipes (title, description, url) VALUES (?, ?, ?)");
         stmt.run([title, description || "", url], function (err) {
             if (err) {
                 console.error("Error inserting recipe", err);
